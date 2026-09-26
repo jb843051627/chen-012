@@ -123,9 +123,9 @@ CREATE TABLE IF NOT EXISTS t_metp_submit_row (
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='正点观测数据核收转存行';
 
--- 初始档案数据（验收测试依赖 id=1 启用 / id=2 停用）
--- 验收测试依赖 t_metp_stn_doc 两条种子档案：id=0 在册、id=1 已停测（F1 坑5/坑3 的联动判定项）。
--- 在册观测要素项数上限取 12/40/120 项，正压在 F1 坑2 的折算断言上（等于上限算高一档）。
+-- 初始档案数据（id=1 启用 / id=2 停用）
+-- 两条初始档案：id=0 在册、id=1 已停测。
+-- 在册观测要素项数上限取 12/40/120 项（等于上限算高一档）。
 INSERT IGNORE INTO t_metp_stn_doc (id, site_no, site_name, site_type, road_name, th1_max, th2_max, th3_max, status, del_flag, create_by, create_time)
 VALUES (0, 'TQ00', '江南省临川国家基本气象站基础档案', '国家基本气象站', '江南省—临川市—城东区', 12.00, 40.00, 120.00, 0, 0, 'seed', NOW()),
        (1, 'TQ01', '旧临川市西郊气象观测站基础档案（已停测）', '一般气象站', '江南省—临川市—城西区', 12.00, 40.00, 120.00, 1, 0, 'seed', NOW());
